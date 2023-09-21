@@ -18,6 +18,11 @@ jobs:
   reaction:
     runs-on: ubuntu-latest
     steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@8ca2b8b2ece13480cda6dacd3511b49857a23c09 # v2.5.1
+        with:
+          egress-policy: audit
+
       - uses: dessant/label-actions@ade7bcd4c1b30de6ba8e556cc31301fd4f79ca65 # v3.1.0
         with:
           github-token: ${{ github.token }}
